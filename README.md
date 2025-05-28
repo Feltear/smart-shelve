@@ -1,4 +1,4 @@
-# Étagère intelligente pour le lab usine
+# Étagère intelligente pour le [Lab-Usine](https://lab-usine.ulaval.ca)
 
 Utilisant les capacités de [OpenFactory](https://github.com/Demo-Smart-Factory-Concordia-University/OpenFactory/blob/main/docs/architecture/architecture.md) en utilisant le [OpenFactory-SDK](https://github.com/Demo-Smart-Factory-Concordia-University/OpenFactory-SDK).
 
