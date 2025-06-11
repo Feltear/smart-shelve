@@ -4,28 +4,33 @@
  MTConnect adapter for a smart shelf instrumentation, which detects the distance from the sensor to the top of the materials.
  
  Circuit:
- * Ethernet shield attached to pins 10, 11, 12, 13 if not using OPTA 
- * Each optocoupler attached to a separate digital in pin (values between A0 and A7).
+ * To be defined based on the hardware used, but typically includes an ultrasonic sensor connected to digital pins for triggering and echo.
 
  created 16 May 2025
  modified 30 May 2025
  */
  #include <Ethernet.h>
+ #include <HC-SR04.h>
 
 const uint16_t HEARTBEAT_TIMEOUT = 10000;
 const uint16_t TRANSITION_TIME_DELAY = 3000;
 
 const uint8_t DATAITEMS_NB = 2;
-const String DATAITEM_IDS[] = {"A1ToolPlus", "A2ToolPlus"};
+const String DATAITEM_IDS[] = {"A1ToolPlus, A2ToolPlus"};
 const uint8_t DATAITEM_PINS[] = {A0, A1};
+
+const HCSR04 sensors[] = {
+  {"UltraSonicA1", 2, 3}
+};
 
 String incoming = "";
 boolean alreadyConnected = false;
 String currState[DATAITEMS_NB];
-
+long duration; // Variable to store the duration of the pulse
+int distance; // Variable to store the distance measured by the ultrasonic sensor
 
 // Static IP configuration for the Opta device.
-IPAddress ip(10, 130, 22, 84);
+IPAddress ip(10, 130, 22, 85);
 
 EthernetServer server(7878);
 EthernetClient client;
@@ -35,10 +40,15 @@ void setup() {
 
   while(!Serial);
 
-  for(int i = 0; i < DATAITEMS_NB; i++){
+  int i;
+  for(i = 0; i < DATAITEMS_NB; i++){
     pinMode(DATAITEM_PINS[i], INPUT);
   }
 
+  for(i = 0; i < sizeof(sensors); i++) {
+    pinMode(sensors[i].trigPin, OUTPUT);
+    pinMode(sensors[i].echoPin, INPUT);
+  }
 
   //Try starting Ethernet connection via DHCP
   if (Ethernet.begin() == 0) {
