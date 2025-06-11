@@ -1,5 +1,5 @@
-#ifndef ULTRASONICSENSOR_H
-#define ULTRASONICSENSOR_H
+#ifndef HCSR04_H
+#define HCSR04_H
 
 #include <Arduino.h>
 
