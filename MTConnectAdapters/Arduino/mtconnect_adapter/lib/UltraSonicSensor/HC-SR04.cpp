@@ -1,10 +1,12 @@
 #include <HC-SR04.h>
 
 int HCSR04::getDistance() {
+    // Clear the sensor
     // Set the trigger pin to LOW for 2 microseconds
     digitalWrite(trigPin, LOW);
     delayMicroseconds(2);
 
+    // Trigger
     // Send a 10 microsecond pulse to the trigger pin
     digitalWrite(trigPin, HIGH);
     delayMicroseconds(10);
