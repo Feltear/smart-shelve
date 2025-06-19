@@ -1,0 +1,19 @@
+{
+  "id": "infra",
+  "version": "0.0.5",
+  "name": "OpenFactory SDK Feature",
+  "description": "Installs the OpenFactory SDK and its local infrastructure.",
+  "forwardPorts": [
+    6789
+  ],
+  "options": {
+    "openfactory-version": {
+      "type": "string",
+      "default": "main",
+      "description": "Git ref (branch, tag, or commit) of OpenFactory to install"
+    }
+  },
+  "installsAfter": [
+    "ghcr.io/devcontainers/features/common-utils"
+  ]
+}

@@ -1,0 +1,9 @@
+devices:
+  HCSR04_1:
+    uuid: HCSR04_ULTRASOUND_DISTANCE_SENSOR
+    agent:
+      port: 5000
+      device_xml: HCSR04.xml
+      adapter:
+        ip: 192.168.14.133
+        port: 7878

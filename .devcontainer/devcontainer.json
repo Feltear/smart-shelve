@@ -1,10 +1,24 @@
 {
+  "name": "OpenFactory-SDK Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/python:3.10",
   "features": {
     "docker-in-docker": {
       "version": "latest"
     },
-    "ghcr.io/demo-smart-factory-concordia-university/openfactory-sdk/infra:latest": {
-      "openfactory-version": "main"
+    "./features/infra": {}
+  },
+  "forwardPorts": [
+    6789,
+  ],
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+      },
+      "extensions": [
+        "ms-python.python",
+        "ms-azuretools.vscode-docker"
+      ]
     }
   }
 }

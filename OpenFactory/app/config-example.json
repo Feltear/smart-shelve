@@ -1,0 +1,25 @@
+{
+    "shelf": {
+        "width": 1000,
+        "height": 2000,
+        "depth": 400,
+        "shelves": {
+            "shelf_1_height": 300,
+            "shelf_2_height": 200
+        }
+    },
+    "products": [
+        {
+            "name": "Produit A",
+            "width": 100,
+            "height": 200,
+            "thickness": 50
+        },
+        {
+            "name": "Produit B",
+            "width": 150,
+            "height": 250,
+            "thickness": 80
+        }
+    ]
+}
