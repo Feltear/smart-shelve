@@ -1,0 +1,4 @@
+apps:
+  distance_monitoring::
+    uuid: PRODUCT-QUANTITY
+    image: product-quantity-monitoring

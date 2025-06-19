@@ -1,0 +1,12 @@
+<MTConnectDevices>
+  <Devices>
+      <Device uuid="HCSR04-01" id="hcsr04-01" name="HCSR04-DISTANCE">
+          <Description>Ultrasonic Distance Sensor HC-SR04</Description>
+          <DataItems>
+              <DataItem category="EVENT" id="avail" name="avail" type="AVAILABILITY"/>
+              <DataItem category="SAMPLE" id="d1" name="distance" type="POSITION" units="MILLIMETER" />
+          </DataItems>
+      </Device>
+  </Devices>
+</MTConnectDevices>
+
