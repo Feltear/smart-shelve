@@ -10,10 +10,11 @@ const int echoPin = 18;
 
 long duration;
 float distanceCm;
+float distanceMm;
 float distanceInch;
 
-const char *ssid = "wifi";
-const char *password = "1234";
+const char *ssid = "RESEAU_IDO";
+const char *password = "12345678";
 
 const uint16_t HEARTBEAT_TIMEOUT = 10000;
 const uint16_t TRANSITION_TIME_DELAY = 3000;
@@ -80,13 +81,15 @@ double measureDistance()
   // Convert to inches
   distanceInch = distanceCm * CM_TO_INCH;
 
+  distanceMm = 10 * distanceCm;
+
   // Prints the distance in the Serial Monitor
   Serial.print("Distance (cm): ");
   Serial.println(distanceCm);
   Serial.print("Distance (inch): ");
   Serial.println(distanceInch);
 
-  return distanceInch;
+  return distanceMm;
 }
 
 void loop()
